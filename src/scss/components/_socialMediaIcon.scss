@@ -1,3 +1,114 @@
-h1 {
-  display: none;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --bgColor: #222;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+  gap: 50px;
+  background: var(--bgColor);
+}
+ul {
+  position: relative;
+  display: flex;
+  gap: 30px;
+}
+li {
+  position: relative;
+  list-style: none;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.5s;
+}
+li:before {
+  content: "";
+  position: absolute;
+  inset: 30px;
+  box-shadow: 0 0 0 10px var(--clr), 0 0 0 20px var(--bgColor),
+    0 0 0 22px var(--clr);
+  transition: 0.5s;
+}
+li:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--bgColor);
+  transform: rotate(45deg);
+  transition: 0.5s;
+}
+li a {
+  position: relative;
+  text-decoration: none;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ul li a i {
+  font-size: 2rem;
+  transition: 0.5s;
+  color: var(--clr);
+}
+ul li:hover a i {
+  transform: translateY(-25%);
+}
+span {
+  position: absolute;
+  font-family: consolas;
+  transform: translateY(-50%) scale(0);
+  opacity: 0;
+  color: var(--clr);
+}
+ul li:hover a span {
+  opacity: 1;
+  transform: translateY(120%) scale(1);
+}
+/* effect01 */
+.effect01 li:hover::before {
+  inset: 15px;
+}
+.effect01 li:hover::after {
+  inset: -10px;
+}
+.effect01 li:hover i,
+.effect01 li:hover span {
+  filter: drop-shadow(0 0 20px var(--clr)) drop-shadow(0 0 40px var(--clr))
+    drop-shadow(0 0 60px var(--clr));
+}
+/* effect02 */
+.effect02 li:hover::before {
+  inset: 15px;
+}
+.effect02 li:hover::after {
+  inset: 0;
+  transform: rotate(0);
+}
+.effect02 li:hover i,
+.effect02 li:hover span {
+  filter: drop-shadow(0 0 20px var(--clr)) drop-shadow(0 0 40px var(--clr))
+    drop-shadow(0 0 60px var(--clr));
+}
+/* effect03 */
+.effect03 li:hover::before {
+  inset: 15px;
+}
+.effect03 li:hover::after {
+  inset: 0;
+  transform: rotate(0);
+  background: var(--clr);
+}
+.effect03 li:hover i,
+.effect03 li:hover span {
+  color: #fff;
 }
